@@ -1,0 +1,11 @@
+.terraform
+
+.terraform.lock.hcl
+
+*.pub
+
+*assgn2*
+
+terraform.tfstate.backup
+
+terraform.tfstate
