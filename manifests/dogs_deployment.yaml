@@ -1,0 +1,23 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dogs
+  namespace: dogs-ns
+  labels:
+    course: clo835
+    week: assgn2
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: dogs-pod
+  template:
+    metadata:
+      labels:
+        name: dogs-pod
+    spec:
+      containers:
+      - name: dogs
+        image: 045278979811.dkr.ecr.us-east-1.amazonaws.com/clo835-assgn2:dogsv0.1
+        # httpd:2.4-alpine

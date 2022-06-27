@@ -1,0 +1,27 @@
+kind: Namespace
+apiVersion: v1
+metadata:
+  name: cats
+  labels:
+    name: cats
+---
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: cats
+  namespace: cats-ns
+  labels:
+    app: cats
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: cats
+  template:
+    metadata:
+      labels:
+       app: cats
+    spec:
+      containers:
+      - name: cats
+        image: 181212752313.dkr.ecr.us-east-1.amazonaws.com/clo835-assgn2:cats

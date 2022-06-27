@@ -1,0 +1,27 @@
+kind: Namespace
+apiVersion: v1
+metadata:
+  name: dogs
+  labels:
+    name: dogs
+---
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: dogs
+  namespace: dogs-ns
+  labels:
+    app: dogs
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: dogs
+  template:
+    metadata:
+      labels:
+       app: dogs
+    spec:
+      containers:
+      - name: dogs
+        image: 181212752313.dkr.ecr.us-east-1.amazonaws.com/clo835-assgn2:dogs

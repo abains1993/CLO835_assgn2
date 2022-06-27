@@ -1,0 +1,23 @@
+kind: Namespace
+apiVersion: v1
+metadata:
+  name: cats
+  labels:
+   name: cats
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: cats
+  labels:
+    course: clo835
+    assignment: assgn2
+    app: cats
+spec:
+  containers:
+  - name: cats
+    image: 181212752313.dkr.ecr.us-east-1.amazonaws.com/clo835-assgn2:cats
+    ports: 
+    - name: web
+      containerPort: 80
+      protocol: TCP
